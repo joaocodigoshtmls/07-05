@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="AirLume.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" autocomplete="username" required>
+        
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" required>
+        
+            <button type="submit">Entrar</button>
+        </form>        
+        <p id="loginMessage"></p>
+        <p id="registerLink">
+            Não possui login? <a href="cadastro.html">Faça o cadastro agora!</a>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ usuario: username, senha: password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Resposta do servidor:', data);
+                document.getElementById('loginMessage').innerText = data.message;
+                if (data.message === 'Login bem-sucedido!') {
+                    console.log('Redirecionando para a página principal...');
+                    setTimeout(() => {
+                        window.location.href = 'Html principal/Home.html'; // Redireciona para a página principal após login
+                    }, 1000);
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao enviar o login:', error);
+                document.getElementById('loginMessage').innerText = 'Erro ao fazer login. Verifique os dados e tente novamente.';
+            });
+        });
+    </script>    
+</body>
+</html>

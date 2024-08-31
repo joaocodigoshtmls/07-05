@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispositivos Monitorados</title>
+    <link rel="stylesheet" href="AirLume.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos para a página de dispositivos */
+        .devices-list {
+            margin-top: 20px;
+        }
+        .device-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+        .device-card h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .device-card p {
+            margin: 5px 0;
+        }
+        .add-device-form {
+            margin-top: 20px;
+            max-width: 600px;
+        }
+        .add-device-form input, .add-device-form button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">AirLume</div>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Dashboard.html">Dashboard</a></li>
+                <li><a href="Upload.html">Upload de Imagens</a></li>
+                <li><a href="Lista de alunos.html">Lista de Alunos</a></li>
+                <li class="active"><a href="Dispositivos.html">Dispositivos Monitorados</a></li>
+                <li><a href="Configuracoes.html">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2>Dispositivos Monitorados</h2>
+            <div class="devices-list" id="devicesList">
+                <!-- Lista de dispositivos será carregada aqui -->
+            </div>
+
+            <div class="add-device-form">
+                <h3>Adicionar Novo Dispositivo</h3>
+                <form id="addDeviceForm">
+                    <label for="deviceName">Nome do Dispositivo:</label>
+                    <input type="text" id="deviceName" name="deviceName" required>
+                    
+                    <label for="deviceStatus">Status do Dispositivo:</label>
+                    <select id="deviceStatus" name="deviceStatus" required>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                    
+                    <button type="submit">Adicionar Dispositivo</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AirLume. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('addDeviceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var deviceName = document.getElementById('deviceName').value;
+            var deviceStatus = document.getElementById('deviceStatus').value;
+
+            // Adiciona o novo dispositivo à lista
+            var devicesList = document.getElementById('devicesList');
+            var deviceCard = document.createElement('div');
+            deviceCard.className = 'device-card';
+            deviceCard.innerHTML = `<h3>${deviceName}</h3><p>Status: ${deviceStatus}</p>`;
+            devicesList.appendChild(deviceCard);
+
+            // Limpa o formulário
+            document.getElementById('addDeviceForm').reset();
+        });
+    </script>
+</body>
+</html>

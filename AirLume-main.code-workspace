@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "teste1",
+				"database": "teste1",
+				"username": "root"
+			},
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "AirLume",
+				"database": "AirLume",
+				"username": "joaoartur"
+			}
+		]
+	}
+}

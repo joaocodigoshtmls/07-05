@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de E-mail</title>
+    <link rel="stylesheet" href="AirLume.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            transition: background-color 0.3s ease-in-out;
+        }
+        main {
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .content-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="content-section">
+            <h2>Email confirmado!</h2>
+            <p>Redirecionando para a página de login...</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 AirLume. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        // Redireciona para a página de login após 3 segundos
+        setTimeout(function() {
+            window.location.href = "Login.html"; // Altere para o caminho correto da sua página de login
+        }, 3000);
+    </script>
+</body>
+</html>
