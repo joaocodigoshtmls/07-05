@@ -5,49 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispositivos Monitorados</title>
     <link rel="stylesheet" href="AirLume.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos básicos para a página de dispositivos */
-        .devices-list {
-            margin-top: 20px;
-        }
-        .device-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 10px;
-            max-width: 600px;
-            background-color: #f9f9f9;
-        }
-        .device-card h3 {
-            margin: 0;
-            font-size: 1.2em;
-        }
-        .device-card p {
-            margin: 5px 0;
-        }
-        .add-device-form {
-            margin-top: 20px;
-            max-width: 600px;
-        }
-        .add-device-form input, .add-device-form button {
-            margin-top: 10px;
-            padding: 10px;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
     <header>
         <div class="logo">AirLume</div>
         <nav>
             <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="Dashboard.html">Dashboard</a></li>
-                <li><a href="Upload.html">Upload de Imagens</a></li>
-                <li><a href="Lista de alunos.html">Lista de Alunos</a></li>
-                <li class="active"><a href="Dispositivos.html">Dispositivos Monitorados</a></li>
-                <li><a href="Configuracoes.html">Configurações</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="students.html">Lista de Alunos</a></li>
+                <li class="active"><a href="devices.html">Dispositivos Monitorados</a></li>
+                <li><a href="settings.html">Configurações</a></li>
             </ul>
         </nav>
     </header>
@@ -76,10 +44,6 @@
             </div>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2024 AirLume. Todos os direitos reservados.</p>
-    </footer>
 
     <script>
         document.getElementById('addDeviceForm').addEventListener('submit', function(e) {

@@ -9,10 +9,9 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "username": "joaoartur",
-            "database": "AirLume",
-            "name": "Banco de dados - AirLume",
-            "askForPassword": true
+            "name": "AirLume",
+            "database": "127.0.0.1:3306",
+            "username": "joaoartur2"
         }
     ]
 }

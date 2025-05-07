@@ -11,12 +11,11 @@
         <div class="logo">AirLume</div>
         <nav>
             <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="Dashboard.html">Dashboard</a></li>
-                <li><a href="Upload.html">Upload de Imagens</a></li>
-                <li><a href="Lista de alunos.html">Lista de Alunos</a></li>
-                <li><a href="Dispositivos.html">Dispositivos Monitorados</a></li>
-                <li class="active"><a href="Configuracoes.html">Configurações</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="students.html">Lista de Alunos</a></li>
+                <li><a href="devices.html">Dispositivos Monitorados</a></li>
+                <li class="active"><a href="settings.html">Configurações</a></li>
             </ul>
         </nav>
     </header>
@@ -24,7 +23,7 @@
     <main>
         <section class="content-section">
             <h2>Configurações</h2>
-            <div class="settings-form" id="settingsForm">
+            <div class="settings-form">
                 <form id="settingsFormContent">
                     <label for="phone">Número de Telefone:</label>
                     <input type="text" id="phone" name="phone" required>
@@ -45,8 +44,10 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 AirLume. Todos os direitos reservados.</p>
+    <footer class="footer-container">
+        <div class="custom-footer">
+            <p class="footer-copyright expanded" id="footerText">&copy; 2024 AirLume. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script>

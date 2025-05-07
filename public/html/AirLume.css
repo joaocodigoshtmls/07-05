@@ -1,0 +1,229 @@
+/* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte Roboto */
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Fundo branco */
+    color: #343a40; /* Texto escuro */
+    font-size: 16px; /* Tamanho da fonte ajustado */
+    line-height: 1.5; /* Espaçamento confortável entre as linhas */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0056b3; /* Azul mais escuro */
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito 3D fixo no logo AirLume */
+header .logo {
+    font-size: 2em; /* Tamanho ajustado */
+    font-weight: bold;
+    color: #ffffff; /* Cor branca para o texto */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2), 
+                 -3px -3px 5px rgba(0, 0, 0, 0.1), 
+                 5px 5px 10px rgba(0, 0, 0, 0.3), /* Efeito de sombra para o 3D */
+                 2px 2px 15px rgba(0, 0, 0, 0.4), /* Sombra adicional */
+                 -2px -2px 15px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
+    transition: none; /* Sem transição de hover */
+}
+
+/* Estilos para a navegação */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1em; /* Tamanho da fonte consistente */
+}
+
+nav ul li a:hover {
+    background-color: #003366; /* Azul escuro */
+    color: #ffd700; /* Cor dourada */
+}
+
+nav ul li.active a {
+    background-color: #003366; /* Azul escuro */
+    color: #ffd700; /* Cor dourada */
+}
+
+/* Estilos para o conteúdo principal */
+main {
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Animação de Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos para seções */
+.content-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #0056b3; /* Azul mais escuro */
+    margin-bottom: 15px;
+    font-size: 1.5em; /* Tamanho da fonte consistente */
+}
+
+h3, h4 {
+    font-size: 1.2em; /* Tamanho ajustado para não ficar grande */
+    color: #0056b3; /* Azul mais escuro */
+}
+
+/* Estilos para as seções de serviços */
+.service {
+    margin-bottom: 20px;
+}
+
+.service h3 {
+    color: #0056b3; /* Azul mais escuro */
+    font-size: 1.2em;
+}
+
+.service p {
+    font-size: 1em;
+    color: #343a40;
+}
+
+/* Efeito de hover nos serviços */
+.service:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Galeria */
+.gallery {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0056b3; /* Azul mais escuro */
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* RESPONSIVIDADE */
+
+/* Para telas menores que 768px */
+@media (max-width: 768px) {
+    /* Ajustar o cabeçalho para dispositivos móveis */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    /* Ajustes no conteúdo */
+    main {
+        padding: 10px;
+    }
+
+    .content-section {
+        padding: 15px;
+    }
+
+    .news-item h3, .service h3 {
+        font-size: 1em;
+    }
+
+    .service p, .news-item p {
+        font-size: 0.9em;
+    }
+
+    .gallery {
+        display: block;
+    }
+
+    .gallery img {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Para telas menores que 480px (smartphones em modo retrato) */
+@media (max-width: 480px) {
+    /* Ajustar tamanho das fontes */
+    body {
+        font-size: 14px; /* Menor para telas menores */
+    }
+
+    .content-section {
+        padding: 10px;
+    }
+
+    h2, h3 {
+        font-size: 1em; /* Tamanho dos títulos ajustado */
+    }
+
+    .news-item h3, .service h3 {
+        font-size: 0.9em;
+    }
+
+    .service p, .news-item p {
+        font-size: 0.85em;
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    nav ul li a {
+        font-size: 0.85em;
+    }
+}

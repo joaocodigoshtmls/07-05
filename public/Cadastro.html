@@ -31,6 +31,7 @@
         }
         input[type="text"],
         input[type="password"],
+        input[type="email"],
         input[type="date"],
         select {
             width: 100%;
@@ -67,40 +68,18 @@
 
             <label for="usuario">Nome de Usuário:</label>
             <input type="text" id="usuario" name="usuario" required autocomplete="username">
-            <form id="cadastroForm">
-                <!-- Outros campos -->
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required autocomplete="email">
             
             <label for="confirmarEmail">Confirme o Email:</label>
             <input type="email" id="confirmarEmail" name="confirmarEmail" required autocomplete="email">
-            
+
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" required autocomplete="new-password">
 
             <label for="confirmarSenha">Confirme a Senha:</label>
             <input type="password" id="confirmarSenha" name="confirmarSenha" required autocomplete="new-password">
-
-            <label for="cep">CEP:</label>
-            <input type="text" id="cep" name="cep" required autocomplete="postal-code">
-
-            <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" required autocomplete="address-level1" readonly>
-
-            <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" name="cidade" required autocomplete="address-level2" readonly>
-
-            <label for="rua">Rua:</label>
-            <input type="text" id="rua" name="rua" required autocomplete="address-line1" readonly>
-
-            <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" name="bairro" required autocomplete="address-line2" readonly>
-
-            <label for="numero">Número:</label>
-            <input type="text" id="numero" name="numero" required autocomplete="address-line3">
-
-            <label for="dataNascimento">Data de Nascimento:</label>
-            <input type="date" id="dataNascimento" name="dataNascimento" required autocomplete="bday">
 
             <label for="sexo">Sexo:</label>
             <select id="sexo" name="sexo" required>
@@ -110,63 +89,39 @@
                 <option value="Outro">Outro</option>
             </select>
 
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" required autocomplete="address-line3">
+
             <button type="submit">Cadastrar</button>
         </form>
     </div>
 
     <script>
         document.getElementById('cadastroForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmarSenha').value;
-
-            if (senha !== confirmarSenha) {
-                alert('As senhas não coincidem.');
-                return;
-            }
-
-            const formData = new FormData(e.target);
+            e.preventDefault(); // Prevenir o reload da página
+            const formData = new FormData(this);
             const data = Object.fromEntries(formData);
 
-            fetch('/cadastro', {
+            fetch('/auth/Cadastro.html', {  // Altere para o endpoint correto
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro no cadastro');
+                }
+                return response.json();
+            })
             .then(data => {
                 alert(data.message);
-                if (data.message === 'Usuário registrado com sucesso!') {
-                    window.location.href = '/login.html';
-                }
             })
             .catch(error => {
-                console.error('Erro ao enviar o cadastro:', error);
+                console.error('Erro ao realizar o cadastro:', error);
+                alert('Erro no cadastro.');
             });
-        });
-
-        document.getElementById('cep').addEventListener('blur', function () {
-            const cep = this.value.replace(/\D/g, '');
-            if (cep.length === 8) {
-                fetch(`/endereco/${cep}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (!data.erro) {
-                            document.getElementById('estado').value = data.uf;
-                            document.getElementById('cidade').value = data.localidade;
-                            document.getElementById('rua').value = data.logradouro;
-                            document.getElementById('bairro').value = data.bairro;
-                        } else {
-                            alert('CEP não encontrado.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Erro ao buscar o endereço:', error);
-                    });
-            }
         });
     </script>
 </body>
